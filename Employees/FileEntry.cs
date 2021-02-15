@@ -22,15 +22,18 @@ namespace Employees
         {
             string[] subs = line.Split(',');
 
-            foreach (var element in subs)
+            for (int i = 0; i < subs.Length; i++)
             {
                 EmpID = Convert.ToInt32(subs[0]);
                 ProjectID = Convert.ToInt32(subs[1]);
                 DateFrom = Convert.ToDateTime(subs[2]);
-                DateTo = Convert.ToDateTime(subs[3]);
+
+                if (!(subs[3].Equals(" NULL")))
+                    DateTo = Convert.ToDateTime(subs[3]);
+                else
+                    DateTo = DateTime.Today;
             }
         }
-    }
 
-    
+    }
 }
