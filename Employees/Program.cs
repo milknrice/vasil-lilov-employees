@@ -32,5 +32,10 @@ namespace Employees
                 Console.WriteLine($"DateTo: {item.DateTo} \n");
             }
         }
+
+        static void CompareEmployees(List<FileEntry> employees)
+        {
+
+        }
     }
 }
