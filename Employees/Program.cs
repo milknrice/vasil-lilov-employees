@@ -31,10 +31,27 @@ namespace Employees
                 Console.WriteLine($"DateFrom: {item.DateFrom}");
                 Console.WriteLine($"DateTo: {item.DateTo} \n");
             }
+
+            CompareEmployees(employees);
         }
 
         static void CompareEmployees(List<FileEntry> employees)
         {
+            for (int i = 0; i < employees.Count - 1; i++)
+            {
+                for (int j = i + 1; j < employees.Count; j++)
+                {
+                    if (employees[i].ProjectID == employees[j].ProjectID)
+                    {
+                        Team team = new Team();
+                        team.firstEmpID = employees[i].EmpID;
+                        team.secondEmpID = employees[j].EmpID;
+
+                        //
+                        Console.WriteLine(team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[i].DateFrom));
+                    }
+                }
+            }
 
         }
     }
