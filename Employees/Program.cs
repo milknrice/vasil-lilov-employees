@@ -47,12 +47,38 @@ namespace Employees
                         team.firstEmpID = employees[i].EmpID;
                         team.secondEmpID = employees[j].EmpID;
 
-                        //
-                        Console.WriteLine(team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[i].DateFrom));
+                        if (employees[i].DateTo.CompareTo(employees[j].DateFrom) > 0 && employees[i].DateFrom.CompareTo(employees[j].DateTo) < 0)
+                        {
+                            Console.WriteLine("\nPeriods match!");
+
+                            if (employees[i].DateTo.CompareTo(employees[j].DateTo) > 0)
+                            {
+                                if (employees[j].DateFrom.CompareTo(employees[i].DateFrom) > 0)
+                                {
+                                    team.timeWorkedTogether = employees[j].DateTo.Subtract(employees[j].DateFrom);
+                                }
+                                else
+                                {
+                                    team.timeWorkedTogether = employees[j].DateTo.Subtract(employees[i].DateFrom);
+                                }
+                            }
+                            else
+                            {
+                                if (employees[j].DateFrom.CompareTo(employees[i].DateFrom) > 0)
+                                {
+                                    team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[j].DateFrom);
+                                }
+                                else
+                                {
+                                    team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[i].DateFrom);
+                                }
+                            }
+
+                            Console.WriteLine($"\nPeriod worked together: {team.timeWorkedTogether}");
+                        }
                     }
                 }
             }
-
         }
     }
 }
