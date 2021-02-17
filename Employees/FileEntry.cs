@@ -28,12 +28,19 @@ namespace Employees
                 ProjectID = Convert.ToInt32(subs[1]);
                 DateFrom = Convert.ToDateTime(subs[2]);
 
-                if (!(subs[3].Equals(" NULL")))
+                if (!(subs[3].Equals("NULL")))
                     DateTo = Convert.ToDateTime(subs[3]);
                 else
                     DateTo = DateTime.Today;
             }
         }
 
+        public void PrintEntry()
+        {
+            Console.WriteLine($"EmployeeID: {EmpID}");
+            Console.WriteLine($"ProjectID: {ProjectID}");
+            Console.WriteLine($"DateFrom: {DateFrom}");
+            Console.WriteLine($"DateTo: {DateTo} \n");
+        }
     }
 }
