@@ -12,11 +12,10 @@ namespace Employees
 
         public int ProjectID { get; set; }
         
-        ///yyyy-mm-dd
         public DateTime DateFrom { get; set; }
 
-        //yyyy-mm-dd
         public DateTime DateTo { get; set; }
+
 
         public void AddEntry (string line)
         {
@@ -34,6 +33,7 @@ namespace Employees
                     DateTo = DateTime.Today;
             }
         }
+
 
         public void PrintEntry()
         {

@@ -16,6 +16,7 @@ namespace Employees
 
         public TimeSpan timeWorkedTogether { get; set; }
 
+
         public void PrintTeam()
         {
             Console.WriteLine("\tThe team which has worked together for the longest time is: \n");
