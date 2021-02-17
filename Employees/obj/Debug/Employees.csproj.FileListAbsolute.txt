@@ -1,0 +1,7 @@
+C:\Users\plagu\source\repos\vasil-lilov-employees\Employees\bin\Debug\Employees.exe.config
+C:\Users\plagu\source\repos\vasil-lilov-employees\Employees\bin\Debug\Employees.exe
+C:\Users\plagu\source\repos\vasil-lilov-employees\Employees\bin\Debug\Employees.pdb
+C:\Users\plagu\source\repos\vasil-lilov-employees\Employees\obj\Debug\Employees.csprojAssemblyReference.cache
+C:\Users\plagu\source\repos\vasil-lilov-employees\Employees\obj\Debug\Employees.csproj.CoreCompileInputs.cache
+C:\Users\plagu\source\repos\vasil-lilov-employees\Employees\obj\Debug\Employees.exe
+C:\Users\plagu\source\repos\vasil-lilov-employees\Employees\obj\Debug\Employees.pdb
