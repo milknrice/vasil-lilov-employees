@@ -103,12 +103,15 @@ namespace Employees
                 // Compare teams' timeWorkedTogether and print out the data for the team with highest result.
                 for (int i = 0; i < teams.Count - 1; i++)
                 {
-                    for (int j = i + 1; j < teams.Count; j++)
+                    for (int j = 0; j < teams.Count; j++)
                     {
-                        if (teams[i].timeWorkedTogether > teams[j].timeWorkedTogether)
-                            bestTeam = teams[i];
-                        else
-                            bestTeam = teams[j];
+                        if (teams[i].timeWorkedTogether > bestTeam.timeWorkedTogether)
+                        {
+                            if (teams[i].timeWorkedTogether > teams[j].timeWorkedTogether)
+                                bestTeam = teams[i];
+                            else
+                                bestTeam = teams[j];
+                        }
                     }
                 }
                 bestTeam.PrintTeam();
