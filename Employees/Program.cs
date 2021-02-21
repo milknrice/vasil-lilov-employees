@@ -31,7 +31,7 @@ namespace Employees
                 }
 
                 // Print out the list of employees.
-                Console.WriteLine("\nList of employees: \n");
+                Console.WriteLine("\nList of employee-project entries: \n");
                 foreach (FileEntry item in employees)
                 {
                     item.PrintEntry();
@@ -66,7 +66,7 @@ namespace Employees
                             Team team = new Team();
                             team.firstEmpID = employees[i].EmpID;
                             team.secondEmpID = employees[j].EmpID;
-                            team.projectID = employees[i].ProjectID;
+                            team.projectID = employees[i].ProjectID.ToString();
 
                             // Calculate the time during which the employees have worked together.
                             if (employees[i].DateTo.CompareTo(employees[j].DateTo) > 0)
@@ -100,10 +100,28 @@ namespace Employees
             {
                 Team bestTeam = new Team();
 
+                // Check if there are teams, which were working on more than one mutual project and sum their worktime.
+                for (int i = 0; i < teams.Count - 1; i++)
+                {
+                    for (int j = i + 1; j < teams.Count; j++)
+                    {
+                        if (teams[i].firstEmpID == teams[j].firstEmpID)
+                            if (teams[i].secondEmpID == teams[j].secondEmpID)
+                            {
+                                // Add the time worked from the other mutual project and it's ID into the projects string.
+                                teams[i].timeWorkedTogether += teams[j].timeWorkedTogether;
+                                teams[i].projectID += $", {teams[j].projectID}";
+
+                                // Delete the unnecessary team entry for fewer cycles in the future.
+                                teams.RemoveAt(j);
+                            }
+                    }
+                }
+
                 // Compare teams' timeWorkedTogether and print out the data for the team with highest result.
                 for (int i = 0; i < teams.Count - 1; i++)
                 {
-                    for (int j = 0; j < teams.Count; j++)
+                    for (int j = i + 1; j < teams.Count; j++)
                     {
                         if (teams[i].timeWorkedTogether > bestTeam.timeWorkedTogether)
                         {

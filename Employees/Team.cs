@@ -12,7 +12,7 @@ namespace Employees
 
         public int secondEmpID { get; set; }
 
-        public int projectID { get; set; }
+        public string projectID { get; set; }
 
         public TimeSpan timeWorkedTogether { get; set; }
 
@@ -23,7 +23,7 @@ namespace Employees
             Console.WriteLine($"First employee ID: {firstEmpID}");
             Console.WriteLine($"Second employee ID: {secondEmpID}");
             Console.WriteLine($"Time worked together: {timeWorkedTogether.Days} days");
-            Console.WriteLine($"On project with ID: {projectID}");
+            Console.WriteLine($"On project(s) with ID: {projectID}");
         }
 
 
