@@ -97,8 +97,6 @@ namespace Employees
 
             else if (teams.Count > 1)
             {
-                Team bestTeam = new Team();
-
                 // Check if there are teams, which were working on more than one mutual project and sum their worktime.
                 for (int i = 0; i < teams.Count - 1; i++)
                 {
@@ -117,19 +115,15 @@ namespace Employees
                     }
                 }
 
+                Team bestTeam = new Team();
+
                 // Compare teams' timeWorkedTogether and print out the data for the team with highest result.
-                for (int i = 0; i < teams.Count - 1; i++)
+                for (int i = 0; i < teams.Count; i++)
                 {
-                    for (int j = i + 1; j < teams.Count; j++)
-                    {
                         if (teams[i].timeWorkedTogether > bestTeam.timeWorkedTogether)
                         {
-                            if (teams[i].timeWorkedTogether > teams[j].timeWorkedTogether)
                                 bestTeam = teams[i];
-                            else
-                                bestTeam = teams[j];
                         }
-                    }
                 }
                 bestTeam.PrintTeam();
             }
