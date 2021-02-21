@@ -53,7 +53,6 @@ namespace Employees
         static void CompareEmployees(List<FileEntry> employees)
         {
             List<Team> teams = new List<Team>();
-
             for (int i = 0; i < employees.Count - 1; i++)
             {
                 for (int j = i + 1; j < employees.Count; j++)
@@ -72,18 +71,18 @@ namespace Employees
                             if (employees[i].DateTo.CompareTo(employees[j].DateTo) > 0)
                             {
                                 if (employees[j].DateFrom.CompareTo(employees[i].DateFrom) > 0)
-                                    team.timeWorkedTogether = employees[j].DateTo.Subtract(employees[j].DateFrom);
+                                    team.timeWorkedTogether = employees[j].DateTo.Subtract(employees[j].DateFrom) + TimeSpan.FromDays(1);
 
                                 else
-                                    team.timeWorkedTogether = employees[j].DateTo.Subtract(employees[i].DateFrom);
+                                    team.timeWorkedTogether = employees[j].DateTo.Subtract(employees[i].DateFrom) + TimeSpan.FromDays(1);
                             }
                             else
                             {
                                 if (employees[j].DateFrom.CompareTo(employees[i].DateFrom) > 0)
-                                    team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[j].DateFrom);
+                                    team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[j].DateFrom) + TimeSpan.FromDays(1);
 
                                 else
-                                    team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[i].DateFrom);
+                                    team.timeWorkedTogether = employees[i].DateTo.Subtract(employees[i].DateFrom) + TimeSpan.FromDays(1);
                             }
 
                             // The current team is added to a list of teams.
